@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据导出</title>
+</head>
+<body>
+<label>请选择需要导出的表名:</label>
+<select>
+    <option>--请选择--</option>
+    <option>表1</option>
+    <option>表2</option>
+    <option>表3</option>
+</select>
+<label>起始时间</label>
+<input type="text" name="startTime" id="startTime" placeholder="示例:2019/01/01">
+~
+<input type="text" name="endTime" id="endTime" placeholder="示例:2019/02/01">
+<span style="color: red">*注:时间格式必须是:年/月/日格式，否则数据会导出失败</span>
+<button type="button">导出</button>
+</body>
+</html>

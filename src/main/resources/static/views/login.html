@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="/js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+    <label>用户名:</label>
+    <input type="text" name="userName" id="userName">
+    <br>
+    <label>密码:</label>
+    <input type="password" name="password" id="password">
+    <button type="button" onclick="login()">登录</button>
+<script>
+    function login() {
+        var userName = $("#userName").val();
+        var password = $("#password").val();
+        console.log(userName+"="+password);
+        var data = {"userName":userName,"password":password};
+        $.ajax({
+            type:"POST",
+            data:JSON.stringify(data),
+            url:"/dataprocessing/login",
+            dataType: "json",
+            contentType : 'application/json',
+            success: function (res) {
+                alert("请求成功"+res.msg);
+                if(res.status == 1){
+                    window.location = "/dataprocessing/goindex";
+                }
+            },
+            error: function () {
+                alert("请求失败");
+            }
+        });
+    }
+</script>
+</body>
+</html>

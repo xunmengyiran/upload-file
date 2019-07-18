@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<style>
+    button{
+        margin: 100px 100px;
+    }
+</style>
+<body>
+<button type="button" onclick="goDataImport()">数据导入</button>
+<button type="button" onclick="goDataExport()">数据导出</button>
+</body>
+<script>
+    function goDataImport() {
+        window.location = "/dataprocessing/godataimport";
+    }
+    function goDataExport() {
+        window.location = "/dataprocessing/godataexport";
+    }
+</script>
+</html>

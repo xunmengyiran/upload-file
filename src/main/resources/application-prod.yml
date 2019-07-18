@@ -1,0 +1,17 @@
+server:
+  port: 30000
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://rm-dj79080b7sx082xx8.mysql.rds.aliyuncs.com:3306/esurfing?characterEncoding=utf8&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false
+    username: jusrjmbz3aib
+    password: NrYi*0#A5%BltZC@
+
+
+logging:
+  level:
+    com.esurfing.tianmao.dao: debug

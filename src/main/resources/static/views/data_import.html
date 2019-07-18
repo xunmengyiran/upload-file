@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <title>数据导入</title>
+</head>
+<body>
+<label>请选择需要导入的表名:</label>
+<select>
+    <option>--请选择--</option>
+    <option>表1</option>
+    <option>表2</option>
+    <option>表3</option>
+</select>
+<div class="custom-file mb-3">
+    <form id="uploadExcelForm" method="post" enctype="multipart/form-data">
+        <input type="file" class="custom-file-input" id="excelFile" name="excelFile">
+        <label class="custom-file-label" for="excelFile">请选择文件</label>
+        <button type="button" onclick="uploadExcel()">确认上传</button>
+    </form>
+</div>
+</body>
+<script>
+    function uploadExcel() {
+        var formData = new FormData($("#uploadExcelForm")[0]);
+        $.ajax({
+            url: "/dataprocessing/uploadexcel",
+            type: "POST",
+            data: formData,
+            dataType: "json",
+            processData: false,
+            cache: false,
+            contentType: false,
+            success: function(res){
+                alert(res.msg);
+            },
+            error: function (e) {
+                alert("程序发生错误。");
+            }
+        });
+    }
+</script>
+</html>

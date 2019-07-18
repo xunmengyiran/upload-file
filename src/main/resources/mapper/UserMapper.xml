@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.akazam.dao.UserDao">
+    <select id="getUserByUserName" parameterType="java.lang.String" resultType="java.lang.Integer">
+        select count(0) from IDC_USER_TEMP where userName=#{userName}
+    </select>
+
+    <select id="getUserByUserNameAndPassword" parameterType="com.akazam.bean.User" resultType="java.lang.Integer">
+        select count(0) from IDC_USER_TEMP where userName=#{userName} AND password=#{password}
+    </select>
+
+    <select id="getUserList" resultType="com.akazam.bean.User">
+        select * from IDC_USER_TEMP
+    </select>
+</mapper>
